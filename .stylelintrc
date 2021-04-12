@@ -1,0 +1,13 @@
+{
+  "ignoreFiles": [
+    "**/*.{js,json}",
+    "**node_modules/**"
+  ],
+  "extends": [
+    "stylelint-config-recommended",
+    "stylelint-config-standard"
+  ],
+  "rules": {
+    "no-empty-source": null
+  }
+}
