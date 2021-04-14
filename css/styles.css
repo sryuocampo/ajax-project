@@ -32,6 +32,10 @@ h1 {
   border-bottom: 2px solid black;
 }
 
+.tab {
+  cursor: pointer;
+}
+
 i {
   margin-right: 10px;
 }
