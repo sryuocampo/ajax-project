@@ -1,20 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AJAX Project</title>
-  <link rel="icon" href="images/favicon.ico">
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/layout.css">
-  <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-  <header>
-  </header>
-  <main>
-  </main>
-  <script src="js/data.js"></script>
-  <script src="js/main.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AJAX Project</title>
+    <link rel="icon" href="images/favicon.ico" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&family=Rosarivo&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="heading">
+          <h1>Las Kitchenas</h1>
+          <p>The hottest date night destination of 2020</p>
+        </div>
+        <div class="tabbed-views">
+          <div class="tab-container">
+            <div class="tab active" data-view="home">
+              <i class="fas fa-home"></i>Home
+            </div>
+            <div class="tab" data-view="favorites">
+              <i class="fas fa-star"></i>Favorites
+            </div>
+            <div class="tab" data-view="shopping list">
+              <i class="fas fa-list-alt"></i>Shopping List
+            </div>
+            <div class="search-tab">
+              <span class="search-button">
+                <i class="fas fa-search"></i>
+              </span>
+              <input type="search" id="search" placeholder="Search" required />
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="container">
+        <div class="row">
+          <div class="recipe">
+            <img id="1" src="./images/ravioli.jpg" />
+            <p>Ricotta &amp; Spinach Ravioli</p>
+          </div>
+          <div class="recipe">
+            <img id="2" src="./images/ravioli.jpg" />
+            <p>Ricotta &amp; Spinach Ravioli</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <main class="home-page"></main>
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+  </body>
 </html>

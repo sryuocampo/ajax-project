@@ -1,0 +1,53 @@
+.heading {
+  background-color: rgb(255, 218, 145);
+  text-align: center;
+  border-bottom: 2px solid black;
+}
+
+.heading > p,
+h1 {
+  margin: 0;
+  padding: 0;
+}
+
+.heading > h1 {
+  font-family: 'Reenie Beanie', Arial, Helvetica, sans-serif;
+  font-weight: 100;
+  font-size: 70px;
+}
+
+.heading > p {
+  font-family: 'Rosarivo', Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  padding-bottom: 15px;
+}
+
+.tab-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-family: 'Rosarivo', Arial, Helvetica, sans-serif;
+  padding-bottom: 10px;
+  margin-top: 10px;
+  border-bottom: 2px solid black;
+}
+
+i {
+  margin-right: 10px;
+}
+
+#search {
+  border: 0;
+  font-family: 'Rosarivo', Arial, Helvetica, sans-serif;
+}
+
+.recipe {
+  border: 2px solid black;
+  width: 230px;
+  height: 245px;
+  margin: 30px;
+}
+
+img {
+  max-width: 100%;
+}
