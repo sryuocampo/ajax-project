@@ -41,13 +41,34 @@ i {
   font-family: 'Rosarivo', Arial, Helvetica, sans-serif;
 }
 
+h2 {
+  font-family: 'Reenie Beanie', Arial, Helvetica, sans-serif;
+  font-weight: 200;
+  border-bottom: 2px solid black;
+  width: 240px;
+  margin-left: 30px;
+}
+
 .recipe {
   border: 2px solid black;
   width: 230px;
   height: 245px;
   margin: 30px;
+  border-radius: 20px;
+  text-align: center;
+  background-color: rgba(255, 166, 0, 0.123);
 }
 
 img {
   max-width: 100%;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.search-header > h1 {
+  font-family: 'Reenie Beanie', Arial, Helvetica, sans-serif;
+  border-bottom: 1px solid black;
+  text-align: center;
+  font-weight: 100;
+  margin: 20px;
 }
