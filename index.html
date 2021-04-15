@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AJAX Project</title>
+    <title>Las Kitchenas</title>
     <link rel="icon" href="images/favicon.ico" />
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/layout.css" />
@@ -41,51 +41,47 @@
             </div>
             <div class="tab" data-view="shopping list">
               <i class="fas fa-list-alt"></i><span>Shopping List</span>
-              </div>
-              <div class="search-tab" data-view="search">
-                <span class="search-button">
-                  <i class="fas fa-search"></i>
-                </span>
-                <input
-                type="search"
-                id="search"
-                placeholder="Search"
-                required
-                />
-                <button id="search-button">Submit</button>
-              </div>
             </div>
           </div>
-        </header>
-      </div>
-      <!--Homepage-->
-      <div class="view-container">
+          <form class="search-form" data-view="search">
+            <span class="search-icon">
+              <i class="fas fa-search"></i>
+            </span>
+            <input type="text" name="search" id="search" placeholder="Search" required />
+            <select name="cuisineType" id="cuisineType">
+              <option value="">All Cuisines</option>
+              <option value="american">American</option>
+              <option value="asian">Asian</option>
+              <option value="british">British</option>
+              <option value="caribbean">Caribbean</option>
+              <option value="central europe">Central Europe</option>
+              <option value="chinese">Chinese</option>
+              <option value="eastern europe">Eastern Europe</option>
+              <option value="french">French</option>
+              <option value="indian">Indian</option>
+              <option value="italian">Italian</option>
+              <option value="japanese">Japanese</option>
+              <option value="kosher">Kosher</option>
+              <option value="mediterranean">Mediterranean</option>
+              <option value="mexican">Mexican</option>
+              <option value="middle eastern">Middle Eastern</option>
+              <option value="nordic">Nordic</option>
+              <option value="south american">South American</option>
+              <option value="south east asian">South East Asian</option>
+            </select>
+            <button type="submit" id="search-button">Submit</button>
+          </form>
+        </div>
+      </header>
+    </div>
+    <!--Homepage-->
+    <div class="view-container">
       <div class="container">
         <div class="view" data-view="home">
           <h2>Italian Recipes</h2>
           <div class="row">
             <div class="recipe">
               <img id="1" src="./images/ravioli.jpg" />
-              <p>Ricotta &amp; Spinach Ravioli</p>
-            </div>
-            <div class="recipe">
-              <img id="2" src="./images/ravioli.jpg" />
-              <p>Ricotta &amp; Spinach Ravioli</p>
-            </div>
-            <div class="recipe">
-              <img id="3" src="./images/ravioli.jpg" />
-              <p>Ricotta &amp; Spinach Ravioli</p>
-            </div>
-            <div class="recipe">
-              <img id="4" src="./images/ravioli.jpg" />
-              <p>Ricotta &amp; Spinach Ravioli</p>
-            </div>
-            <div class="recipe">
-              <img id="5" src="./images/ravioli.jpg" />
-              <p>Ricotta &amp; Spinach Ravioli</p>
-            </div>
-            <div class="recipe">
-              <img id="6" src="./images/ravioli.jpg" />
               <p>Ricotta &amp; Spinach Ravioli</p>
             </div>
           </div>
@@ -97,37 +93,28 @@
           <div class="search-header">
             <h1>Search Results</h1>
           </div>
-          <div class="row">
+          <div id="search-results-list" class="row">
             <div class="recipe">
-              <img id="7" src="./images/ravioli.jpg" />
-              <p>Ricotta &amp; Spinach Ravioli</p>
-            </div>
-            <div class="recipe">
-              <img id="8" src="./images/ravioli.jpg" />
-              <p>Ricotta &amp; Spinach Ravioli</p>
-            </div>
-            <div class="recipe">
-              <img id="9" src="./images/ravioli.jpg" />
-              <p>Ricotta &amp; Spinach Ravioli</p>
-            </div>
-            <div class="recipe">
-              <img id="10" src="./images/ravioli.jpg" />
-              <p>Ricotta &amp; Spinach Ravioli</p>
-            </div>
-            <div class="recipe">
-              <img id="11" src="./images/ravioli.jpg" />
-              <p>Ricotta &amp; Spinach Ravioli</p>
-            </div>
-            <div class="recipe">
-              <img id="12" src="./images/ravioli.jpg" />
+              <div class="img-background"></div>
               <p>Ricotta &amp; Spinach Ravioli</p>
             </div>
           </div>
         </div>
       </div>
+      <!--Shopping List-->
+      <div class="container">
+        <div class="view hidden" data-view="shopping list">
+          <div class="shopping-header">
+            <h1>Shopping List</h1>
+          </div>
+        </div>
+      </div>
     </div>
     <main class="home-page"></main>
+    <script src="js/favorites.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/shoppingList.js"></script>
     <script src="js/data.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/navigation.js"></script>
   </body>
 </html>

@@ -41,8 +41,33 @@ i {
 }
 
 #search {
-  border: 0;
   font-family: 'Rosarivo', Arial, Helvetica, sans-serif;
+  border-radius: 4px;
+  border: 1px solid black;
+  margin-right: 13px;
+}
+
+.search-form {
+  padding: 10px;
+  text-align: right;
+}
+
+#search-button {
+  font-family: 'Rosarivo', Arial, Helvetica, sans-serif;
+  border-radius: 4px;
+  border: 0;
+  background-color: #000000c7;
+  color: white;
+  font-weight: bold;
+  width: 110px;
+  height: 23px;
+}
+
+#cuisineType {
+  font-family: 'Rosarivo', Arial, Helvetica, sans-serif;
+  margin-right: 15px;
+  border-radius: 4px;
+  border: 1px solid black;
 }
 
 h2 {
@@ -55,6 +80,7 @@ h2 {
 
 .recipe {
   border: 2px solid black;
+  overflow: hidden;
   width: 230px;
   height: 245px;
   margin: 30px;
@@ -65,11 +91,28 @@ h2 {
 
 img {
   max-width: 100%;
+  height: 180px;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
 }
 
+.img-background {
+  background-color: orange;
+  width: 226px;
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+}
+
 .search-header > h1 {
+  font-family: 'Reenie Beanie', Arial, Helvetica, sans-serif;
+  border-bottom: 1px solid black;
+  text-align: center;
+  font-weight: 100;
+  margin: 20px;
+}
+
+.shopping-header > h1 {
   font-family: 'Reenie Beanie', Arial, Helvetica, sans-serif;
   border-bottom: 1px solid black;
   text-align: center;
