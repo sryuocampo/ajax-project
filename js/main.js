@@ -5,11 +5,9 @@ var tabList = document.querySelectorAll('.tab');
 var viewList = document.querySelectorAll('.view');
 
 tabContainer.addEventListener('click', function (event) {
-  if (event.target.matches('tab') !== true) {
-    return;
-  }
+  var tab = event.target.closest('.tab');
   for (var i = 0; i < tabList.length; i++) {
-    if (tabList[i] === event.target) {
+    if (tabList[i] === tab) {
       tabList[i].className = 'tab active';
     } else {
       tabList[i].className = 'tab';
