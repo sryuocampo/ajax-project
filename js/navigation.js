@@ -17,9 +17,9 @@ function changePage(view) {
 
   for (var d = 0; d < viewList.length; d++) {
     if (viewList[d].getAttribute('data-view') === view) {
-      viewList[d].className = 'view';
+      viewList[d].classList.remove('hidden');
     } else {
-      viewList[d].className = 'view hidden';
+      viewList[d].classList.add('hidden');
     }
   }
 
@@ -84,8 +84,6 @@ function formSubmit(event) {
   });
 }
 
-
-
 formElement.addEventListener('submit', formSubmit);
 
 searchResultsListDiv.addEventListener('click', function (event) {
@@ -113,6 +111,4 @@ searchResultsListDiv.addEventListener('click', function (event) {
   }
 });
 
-function makeShoppintList() {
-  
-}
+function makeShoppintList() {}

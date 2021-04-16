@@ -22,6 +22,26 @@ h1 {
   padding-bottom: 15px;
 }
 
+.home > h1 {
+  font-family: 'Reenie Beanie', Arial, Helvetica, sans-serif;
+  text-align: center;
+  border-bottom: 1px solid black;
+  margin: 20px;
+}
+
+#welcome-img {
+  width: 80%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.home p {
+  font-family: 'Rosarivo', Arial, Helvetica, sans-serif;
+  font-size: 22px;
+  width: 670px;
+  text-align: center;
+}
+
 .tab-container {
   display: flex;
   flex-direction: row;
