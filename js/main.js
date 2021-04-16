@@ -1,3 +1,0 @@
-
-var favorites = new Favorites();
-

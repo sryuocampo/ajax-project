@@ -47,9 +47,14 @@
             <span class="search-icon">
               <i class="fas fa-search"></i>
             </span>
-            <input type="text" name="search" id="search" placeholder="Search" required />
+            <input
+              type="text"
+              name="search"
+              id="search"
+              placeholder="Search"
+              required
+            />
             <select name="cuisineType" id="cuisineType">
-              <option value="">All Cuisines</option>
               <option value="american">American</option>
               <option value="asian">Asian</option>
               <option value="british">British</option>
@@ -81,6 +86,7 @@
           <h2>Italian Recipes</h2>
           <div class="row">
             <div class="recipe">
+              <i id="fav-icon" class="far fa-star"></i>
               <img id="1" src="./images/ravioli.jpg" />
               <p>Ricotta &amp; Spinach Ravioli</p>
             </div>
@@ -95,6 +101,7 @@
           </div>
           <div id="search-results-list" class="row">
             <div class="recipe">
+              <i class="far fa-star"></i>
               <div class="img-background"></div>
               <p>Ricotta &amp; Spinach Ravioli</p>
             </div>
