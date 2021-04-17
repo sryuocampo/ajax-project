@@ -27,6 +27,8 @@ h1 {
   text-align: center;
   border-bottom: 1px solid black;
   margin: 20px;
+  font-weight: 100;
+  font-size: 50px;
 }
 
 #welcome-img {
