@@ -15,3 +15,13 @@ EDAMAM API, Figma, Visual Code Studios, HTML, CSS, and JavaScript.
 ## Preview 
 ![mobile version](https://user-images.githubusercontent.com/78890855/115321175-27a07600-a138-11eb-8aae-be94891918b6.PNG)
 
+## Get Started
+
+cd ~/repos
+
+git clone git@github.com:<you>/ajax-project.git
+
+cd ajax-project
+
+npm ci
+
