@@ -153,9 +153,11 @@ img {
   filter: drop-shadow(0 0 4px white);
 }
 
-.recipe > p:hover {
-  text-decoration: underline;
-  cursor: pointer;
+a {
+  font-family: 'Rosarivo', Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  text-decoration: none;
+  color: black;
 }
 
 .recipe > i.shopping-cart {
