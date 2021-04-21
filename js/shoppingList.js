@@ -1,5 +1,8 @@
 function ShoppingList() {
   this.recipes = [];
+
+//local storage
+
 }
 ShoppingList.prototype.addRecipe = function (recipe) {
   this.recipes.push(recipe);

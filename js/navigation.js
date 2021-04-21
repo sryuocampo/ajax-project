@@ -6,6 +6,8 @@ var viewList = document.querySelectorAll('.view');
 
 var searchResultsListDiv = document.getElementById('search-results-list');
 
+var favResultsDiv = document.getElementById('favorite-results-list');
+
 function changePage(view) {
   for (var i = 0; i < tabList.length; i++) {
     if (tabList[i].getAttribute('data-view') === view) {
@@ -25,6 +27,9 @@ function changePage(view) {
 
   if (view === 'shopping list') {
     makeShoppingList();
+  }
+  if (view === 'favorites') {
+    makeFavoritesList();
   }
 }
 
@@ -59,11 +64,21 @@ function formSubmit(event) {
       p.appendChild(pText);
 
       var favStar = document.createElement('i');
-      favStar.setAttribute('class', 'far fa-star favorite');
+
+      if (favorites.getRecipe(recipe.uri) !== undefined) {
+        favStar.className = 'fas fa-star favorite';
+      } else {
+        favStar.className = 'far fa-star favorite';
+      }
       favStar.setAttribute('data-recipe-uri', recipe.uri);
 
       var cartIcon = document.createElement('i');
-      cartIcon.setAttribute('class', 'fas fa-cart-plus shopping-cart');
+
+      if (shoppingList.getRecipe(recipe.uri) !== undefined) {
+        cartIcon.className = 'fas fa-shopping-cart shopping-cart';
+      } else {
+        cartIcon.className = 'fas fa-cart-plus shopping-cart';
+      }
       cartIcon.setAttribute('data-recipe-uri', recipe.uri);
 
       var divBackgroundImg = document.createElement('div');
@@ -138,3 +153,76 @@ function makeShoppingList() {
     listId.append(recipeName, unorderdList);
   }
 }
+
+function makeFavoritesList() {
+  var list = favorites.listRecipes();
+
+  while (favResultsDiv.firstChild) {
+    favResultsDiv.removeChild(favResultsDiv.firstChild);
+  }
+
+  for (let i = 0; i < list.length; i++) {
+    var p = document.createElement('p');
+    p.onclick = function () {
+      window.open(list[i].recipe.url);
+    };
+    var pText = document.createTextNode(list[i].recipe.label);
+    p.appendChild(pText);
+
+    var favStar = document.createElement('i');
+
+    if (favorites.getRecipe(list[i].recipe.uri) !== undefined) {
+      favStar.className = 'fas fa-star favorite';
+    } else {
+      favStar.className = 'far fa-star favorite';
+    }
+    favStar.setAttribute('data-recipe-uri', list[i].recipe.uri);
+
+    var cartIcon = document.createElement('i');
+
+    if (shoppingList.getRecipe(list[i].recipe.uri) !== undefined) {
+      cartIcon.className = 'fas fa-shopping-cart shopping-cart';
+    } else {
+      cartIcon.className = 'fas fa-cart-plus shopping-cart';
+    }
+    cartIcon.setAttribute('data-recipe-uri', list[i].recipe.uri);
+
+    var divBackgroundImg = document.createElement('div');
+    divBackgroundImg.setAttribute('class', 'img-background');
+
+    divBackgroundImg.style.backgroundImage =
+      'url(' + list[i].recipe.image + ')';
+
+    var divRecipe = document.createElement('div');
+    divRecipe.setAttribute('class', 'recipe');
+
+    divRecipe.append(favStar, cartIcon, divBackgroundImg, p);
+
+    favResultsDiv.append(divRecipe);
+  }
+}
+
+favResultsDiv.addEventListener('click', function (event) {
+  if (event.target.matches('.favorite')) {
+    var uri = event.target.getAttribute('data-recipe-uri');
+    if (favorites.getRecipe(uri) !== undefined) {
+      event.target.className = 'far fa-star favorite';
+      favorites.removeRecipe(uri);
+    } else {
+      event.target.className = 'fas fa-star favorite';
+      var favRecipe = search.getResult(uri);
+      favorites.addRecipe(favRecipe);
+    }
+  } else if (event.target.matches('.shopping-cart')) {
+    var uri = event.target.getAttribute('data-recipe-uri');
+
+    if (shoppingList.getRecipe(uri) !== undefined) {
+      event.target.className = 'fas fa-cart-plus shopping-cart';
+      shoppingList.removeRecipe(uri);
+    } else {
+      event.target.className = 'fas fa-shopping-cart shopping-cart';
+      var shoppingCart = search.getResult(uri);
+      shoppingList.addRecipe(shoppingCart);
+    }
+  }
+});
