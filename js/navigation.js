@@ -42,6 +42,45 @@ tabContainer.addEventListener('click', function (event) {
 
 var formElement = document.querySelector('.search-form');
 
+function recipeGenerator(recipe) {
+  var p = document.createElement('p');
+  p.onclick = function () {
+    window.open(recipe.url);
+  };
+  var pText = document.createTextNode(recipe.label);
+  p.appendChild(pText);
+
+  var favStar = document.createElement('i');
+
+  if (favorites.getRecipe(recipe.uri) !== undefined) {
+    favStar.className = 'fas fa-star favorite';
+  } else {
+    favStar.className = 'far fa-star favorite';
+  }
+  favStar.setAttribute('data-recipe-uri', recipe.uri);
+
+  var cartIcon = document.createElement('i');
+
+  if (shoppingList.getRecipe(recipe.uri) !== undefined) {
+    cartIcon.className = 'fas fa-shopping-cart shopping-cart';
+  } else {
+    cartIcon.className = 'fas fa-cart-plus shopping-cart';
+  }
+  cartIcon.setAttribute('data-recipe-uri', recipe.uri);
+
+  var divBackgroundImg = document.createElement('div');
+  divBackgroundImg.setAttribute('class', 'img-background');
+
+  divBackgroundImg.style.backgroundImage = 'url(' + recipe.image + ')';
+
+  var divRecipe = document.createElement('div');
+  divRecipe.setAttribute('class', 'recipe');
+
+  divRecipe.append(favStar, cartIcon, divBackgroundImg, p);
+
+  return divRecipe;
+}
+
 function formSubmit(event) {
   event.preventDefault();
 
@@ -54,45 +93,8 @@ function formSubmit(event) {
     }
 
     for (var r = 0; r < response.hits.length; r++) {
-      const recipe = response.hits[r].recipe;
-
-      var p = document.createElement('p');
-      p.onclick = function () {
-        window.open(recipe.url);
-      };
-      var pText = document.createTextNode(recipe.label);
-      p.appendChild(pText);
-
-      var favStar = document.createElement('i');
-
-      if (favorites.getRecipe(recipe.uri) !== undefined) {
-        favStar.className = 'fas fa-star favorite';
-      } else {
-        favStar.className = 'far fa-star favorite';
-      }
-      favStar.setAttribute('data-recipe-uri', recipe.uri);
-
-      var cartIcon = document.createElement('i');
-
-      if (shoppingList.getRecipe(recipe.uri) !== undefined) {
-        cartIcon.className = 'fas fa-shopping-cart shopping-cart';
-      } else {
-        cartIcon.className = 'fas fa-cart-plus shopping-cart';
-      }
-      cartIcon.setAttribute('data-recipe-uri', recipe.uri);
-
-      var divBackgroundImg = document.createElement('div');
-      divBackgroundImg.setAttribute('class', 'img-background');
-
-      divBackgroundImg.style.backgroundImage = 'url(' + recipe.image + ')';
-
-      var divRecipe = document.createElement('div');
-      divRecipe.setAttribute('class', 'recipe');
-
-      divRecipe.append(favStar, cartIcon, divBackgroundImg, p);
-
+      var divRecipe = recipeGenerator(response.hits[r].recipe);
       searchResultsListDiv.append(divRecipe);
-
       changePage('search');
     }
   });
@@ -162,41 +164,7 @@ function makeFavoritesList() {
   }
 
   for (let i = 0; i < list.length; i++) {
-    var p = document.createElement('p');
-    p.onclick = function () {
-      window.open(list[i].recipe.url);
-    };
-    var pText = document.createTextNode(list[i].recipe.label);
-    p.appendChild(pText);
-
-    var favStar = document.createElement('i');
-
-    if (favorites.getRecipe(list[i].recipe.uri) !== undefined) {
-      favStar.className = 'fas fa-star favorite';
-    } else {
-      favStar.className = 'far fa-star favorite';
-    }
-    favStar.setAttribute('data-recipe-uri', list[i].recipe.uri);
-
-    var cartIcon = document.createElement('i');
-
-    if (shoppingList.getRecipe(list[i].recipe.uri) !== undefined) {
-      cartIcon.className = 'fas fa-shopping-cart shopping-cart';
-    } else {
-      cartIcon.className = 'fas fa-cart-plus shopping-cart';
-    }
-    cartIcon.setAttribute('data-recipe-uri', list[i].recipe.uri);
-
-    var divBackgroundImg = document.createElement('div');
-    divBackgroundImg.setAttribute('class', 'img-background');
-
-    divBackgroundImg.style.backgroundImage =
-      'url(' + list[i].recipe.image + ')';
-
-    var divRecipe = document.createElement('div');
-    divRecipe.setAttribute('class', 'recipe');
-
-    divRecipe.append(favStar, cartIcon, divBackgroundImg, p);
+    var divRecipe = recipeGenerator(list[i].recipe);
 
     favResultsDiv.append(divRecipe);
   }
