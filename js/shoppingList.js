@@ -1,8 +1,16 @@
 function ShoppingList() {
   this.recipes = [];
 
-//local storage
+  // local storage
+  var shoppingJSON = localStorage.getItem('ajax-shopping-list-local-storage');
+  if (shoppingJSON) {
+    this.recipes = JSON.parse(shoppingJSON);
+  }
 
+  window.addEventListener('beforeunload', () => {
+    var shoppinglistJSON = JSON.stringify(this.recipes);
+    localStorage.setItem('ajax-shopping-list-local-storage', shoppinglistJSON);
+  });
 }
 ShoppingList.prototype.addRecipe = function (recipe) {
   this.recipes.push(recipe);

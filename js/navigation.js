@@ -44,9 +44,9 @@ var formElement = document.querySelector('.search-form');
 
 function recipeGenerator(recipe) {
   var p = document.createElement('p');
-  p.onclick = function () {
-    window.open(recipe.url);
-  };
+
+  p.setAttribute('data-recipe-uri', recipe.uri);
+
   var pText = document.createTextNode(recipe.label);
   p.appendChild(pText);
 
@@ -67,7 +67,6 @@ function recipeGenerator(recipe) {
     cartIcon.className = 'fas fa-cart-plus shopping-cart';
   }
   cartIcon.setAttribute('data-recipe-uri', recipe.uri);
-
   var divBackgroundImg = document.createElement('div');
   divBackgroundImg.setAttribute('class', 'img-background');
 
@@ -123,6 +122,12 @@ searchResultsListDiv.addEventListener('click', function (event) {
       event.target.className = 'fas fa-shopping-cart shopping-cart';
       var shoppingCart = search.getResult(uri);
       shoppingList.addRecipe(shoppingCart);
+    }
+  } else if (event.target.matches('p')) {
+    var uri = event.target.getAttribute('data-recipe-uri');
+    var shopRecipe = shoppingList.getRecipe(uri);
+    if (shopRecipe !== undefined) {
+      window.open(shopRecipe.recipe.url);
     }
   }
 });
@@ -191,6 +196,12 @@ favResultsDiv.addEventListener('click', function (event) {
       event.target.className = 'fas fa-shopping-cart shopping-cart';
       var shoppingCart = search.getResult(uri);
       shoppingList.addRecipe(shoppingCart);
+    }
+  } else if (event.target.matches('p')) {
+    var uri = event.target.getAttribute('data-recipe-uri');
+    var shopRecipe = shoppingList.getRecipe(uri);
+    if (shopRecipe !== undefined) {
+      window.open(shopRecipe.recipe.url);
     }
   }
 });
