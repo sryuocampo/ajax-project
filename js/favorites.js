@@ -2,7 +2,15 @@ function Favorites() {
   this.recipes = [];
 
   // local storage
+  var favoritesJSON = localStorage.getItem('ajax-favorites-local-storage');
+  if (favoritesJSON) {
+    this.recipes = JSON.parse(favoritesJSON);
+  }
 
+  window.addEventListener('beforeunload', () => {
+    var favoriteslistJSON = JSON.stringify(this.recipes);
+    localStorage.setItem('ajax-favorites-local-storage', favoriteslistJSON);
+  });
 }
 
 Favorites.prototype.addRecipe = function (recipe) {
