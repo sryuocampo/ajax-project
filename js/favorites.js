@@ -1,5 +1,8 @@
 function Favorites() {
   this.recipes = [];
+
+  // local storage
+
 }
 
 Favorites.prototype.addRecipe = function (recipe) {

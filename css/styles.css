@@ -153,11 +153,21 @@ img {
   filter: drop-shadow(0 0 4px white);
 }
 
-.recipe > p:hover {
-  text-decoration: underline;
-  cursor: pointer;
+a {
+  font-family: 'Rosarivo', Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  text-decoration: none;
+  color: black;
 }
 
 .recipe > i.shopping-cart {
   top: 40px;
+}
+
+.favorites-header > h1 {
+  font-family: 'Reenie Beanie', Arial, Helvetica, sans-serif;
+  border-bottom: 1px solid black;
+  text-align: center;
+  font-weight: 100;
+  margin: 20px;
 }
