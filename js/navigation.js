@@ -129,12 +129,10 @@ searchResultsListDiv.addEventListener('click', function (event) {
 function makeShoppingList() {
   var list = shoppingList.listIngredients();
   var listId = document.getElementById('shopping-list');
-  // remove all children from container
   while (listId.firstChild) {
     listId.removeChild(listId.firstChild);
   }
   for (var i = 0; i < list.length; i++) {
-    // dom create heading for label and dom create ul
     var unorderdList = document.createElement('ul');
 
     var recipeName = document.createElement('h2');
@@ -144,13 +142,11 @@ function makeShoppingList() {
     recipeName.appendChild(unorderdList);
 
     for (var il = 0; il < list[i].ingredients.length; il++) {
-      // dom create li's and append to ul
       var liList = document.createElement('li');
       var liText = document.createTextNode(list[i].ingredients[il]);
       liList.appendChild(liText);
       unorderdList.appendChild(liList);
     }
-    // append heading and ul to container
     listId.append(recipeName, unorderdList);
   }
 }

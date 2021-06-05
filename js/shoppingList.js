@@ -1,7 +1,6 @@
 function ShoppingList() {
   this.recipes = [];
 
-  // local storage
   var shoppingJSON = localStorage.getItem('ajax-shopping-list-local-storage');
   if (shoppingJSON) {
     this.recipes = JSON.parse(shoppingJSON);

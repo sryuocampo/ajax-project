@@ -1,7 +1,6 @@
 function Favorites() {
   this.recipes = [];
 
-  // local storage
   var favoritesJSON = localStorage.getItem('ajax-favorites-local-storage');
   if (favoritesJSON) {
     this.recipes = JSON.parse(favoritesJSON);

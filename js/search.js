@@ -10,8 +10,7 @@ Search.prototype.doSearch = function (ingredients, cuisineType, callBack) {
   );
   xhr.responseType = 'json';
   xhr.addEventListener('load', function () {
-    // console.log(xhr.status);
-    // console.log(xhr.response);
+
     if (xhr.status === 200) {
       that.lastSearch = xhr.response.hits;
       callBack(xhr.response);
